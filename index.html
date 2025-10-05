@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Architect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Word Architect 🏛️</h1>
+        
+        <div id="prompt-container">
+            <p><strong>Create a word that means:</strong> <span id="definition"></span></p>
+        </div>
+
+        <div id="construction-zone-wrapper">
+            <h2>Construction Zone</h2>
+            <div id="construction-zone" class="drop-zone">
+                </div>
+        </div>
+
+        <div id="spelling-zone" class="hidden">
+            <input type="text" id="spelling-input" placeholder="Now, type the final word...">
+            <button id="check-spell-btn">Check Spelling</button>
+        </div>
+
+        <div id="feedback-container">
+            </div>
+
+        <div id="morpheme-bank-wrapper">
+            <h2>Morpheme Bank</h2>
+            <div id="morpheme-bank">
+                </div>
+            <button id="reset-btn">Reset</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
