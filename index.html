@@ -8,8 +8,16 @@
 </head>
 <body>
 
-    <div id="game-container">
+    <div id="mode-selection">
         <h1>Word Architect 🏛️</h1>
+        <p>Choose your game mode:</p>
+        <div class="mode-buttons">
+            <button id="practice-mode-btn" class="mode-btn">Practice Mode</button>
+            <button id="challenge-mode-btn" class="mode-btn" disabled>Challenge Mode (Coming Soon)</button>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
         
         <div id="prompt-container">
             <p><strong>Create a word that means:</strong> <span id="definition"></span></p>
@@ -17,8 +25,7 @@
 
         <div id="construction-zone-wrapper">
             <h2>Construction Zone</h2>
-            <div id="construction-zone" class="drop-zone">
-                </div>
+            <div id="construction-zone" class="drop-zone"></div>
         </div>
 
         <div id="spelling-zone" class="hidden">
@@ -26,16 +33,16 @@
             <button id="check-spell-btn">Check Spelling</button>
         </div>
 
-        <div id="feedback-container">
-            </div>
+        <div id="feedback-container"></div>
 
         <div id="morpheme-bank-wrapper">
-            <h2>Morpheme Bank</h2>
-            <div id="morpheme-bank">
-                </div>
-            <button id="reset-btn">Reset</button>
+            <h2>
+                Morpheme Bank
+                <button id="toggle-meanings-btn">Show Meanings</button>
+            </h2>
+            <div id="morpheme-bank"></div>
+            <button id="reset-btn">Next Word</button>
         </div>
-
     </div>
 
     <script src="script.js"></script>
