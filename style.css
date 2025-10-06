@@ -190,7 +190,6 @@ button {
 .hidden { display: none !important; }
 
 /* --- Challenge Mode Styles (challenge.html) --- */
-/* UPDATED: Container now matches practice mode for consistency */
 #challenge-container {
     background-color: #ffffff;
     padding: 2rem;
@@ -226,10 +225,19 @@ button {
     margin-top: 1rem;
     color: #6c757d;
     text-decoration: none;
+    display: inline-block; /* Ensures margin works correctly */
 }
 .back-link:hover {
     text-decoration: underline;
 }
+
+/* NEW: Container for home links */
+.home-link-container {
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
 
 /* Game Screen Styles */
 #game-header {
