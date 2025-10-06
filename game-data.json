@@ -1,41 +1,539 @@
 {
   "morphemes": {
     "prefixes": [
+      { "morpheme": "de-", "meaning": "down, away, opposite" },
+      { "morpheme": "dis-", "meaning": "not, apart" },
+      { "morpheme": "trans-", "meaning": "across, over" },
+      { "morpheme": "pre-", "meaning": "before" },
+      { "morpheme": "post-", "meaning": "after" },
+      { "morpheme": "mal-", "meaning": "bad, evil" },
+      { "morpheme": "mis-", "meaning": "wrongly" },
+      { "morpheme": "bene-", "meaning": "good, well" },
       { "morpheme": "re-", "meaning": "again, back" },
-      { "morpheme": "un-", "meaning": "not, opposite of" },
-      { "morpheme": "pre-", "meaning": "before" }
+      { "morpheme": "inter-", "meaning": "between, among" },
+      { "morpheme": "non-", "meaning": "not" },
+      { "morpheme": "un-", "meaning": "not" },
+      { "morpheme": "in-", "meaning": "not" },
+      { "morpheme": "im-", "meaning": "not" },
+      { "morpheme": "ir-", "meaning": "not" },
+      { "morpheme": "il-", "meaning": "not" },
+      { "morpheme": "anti-", "meaning": "against, opposite" },
+      { "morpheme": "multi-", "meaning": "many, much" },
+      { "morpheme": "ex-", "meaning": "out, from" },
+      { "morpheme": "over-", "meaning": "too much, above" },
+      { "morpheme": "under-", "meaning": "below" },
+      { "morpheme": "sub-", "meaning": "under, beneath" },
+      { "morpheme": "super-", "meaning": "above, beyond" },
+      { "morpheme": "counter-", "meaning": "against" },
+      { "morpheme": "col-", "meaning": "with, together" },
+      { "morpheme": "con-", "meaning": "with, together" },
+      { "morpheme": "pro-", "meaning": "forward" },
+      { "morpheme": "en-", "meaning": "to cause to be" },
+      { "morpheme": "circum-", "meaning": "around" },
+      { "morpheme": "extra-", "meaning": "outside, beyond" },
+      { "morpheme": "hyper-", "meaning": "over, excessive" },
+      { "morpheme": "co-", "meaning": "together" },
+      { "morpheme": "per-", "meaning": "thoroughly" },
+      { "morpheme": "bi-", "meaning": "two" }
     ],
     "roots": [
-      { "morpheme": "vis", "meaning": "see" },
-      { "morpheme": "port", "meaning": "carry" },
-      { "morpheme": "struct", "meaning": "build" }
+      { "morpheme": "astr-o", "meaning": "stars, heavens" },
+      { "morpheme": "ge", "meaning": "earth, rocks" },
+      { "morpheme": "therm", "meaning": "heat, warm" },
+      { "morpheme": "hydr-o", "meaning": "water" },
+      { "morpheme": "phon-o", "meaning": "sound, speech" },
+      { "morpheme": "scope", "meaning": "instrument used to observe, to see" },
+      { "morpheme": "graph", "meaning": "written" },
+      { "morpheme": "tele", "meaning": "distant, far" },
+      { "morpheme": "chron", "meaning": "time" },
+      { "morpheme": "port", "meaning": "to carry" },
+      { "morpheme": "form", "meaning": "to shape" },
+      { "morpheme": "tract", "meaning": "to pull" },
+      { "morpheme": "rupt", "meaning": "to break" },
+      { "morpheme": "spect", "meaning": "to see, to watch" },
+      { "morpheme": "struct", "meaning": "to build" },
+      { "morpheme": "dict", "meaning": "to tell, to say" },
+      { "morpheme": "flex", "meaning": "to bend" },
+      { "morpheme": "cred", "meaning": "to believe" },
+      { "morpheme": "aqua", "meaning": "water" },
+      { "morpheme": "ject", "meaning": "to throw" },
+      { "morpheme": "mit", "meaning": "to send" },
+      { "morpheme": "script", "meaning": "to write" },
+      { "morpheme": "spire", "meaning": "to breathe" },
+      { "morpheme": "terra", "meaning": "earth" },
+      { "morpheme": "path", "meaning": "feeling" },
+      { "morpheme": "labor", "meaning": "work" },
+      { "morpheme": "stitut", "meaning": "stand" },
+      { "morpheme": "motiv", "meaning": "move" },
+      { "morpheme": "sci", "meaning": "know" },
+      { "morpheme": "nav", "meaning": "ship" },
+      { "morpheme": "gener", "meaning": "kind, birth" },
+      { "morpheme": "prehend", "meaning": "grasp" },
+      { "morpheme": "agon", "meaning": "struggle" },
+      { "morpheme": "fect", "meaning": "do, make" },
+      { "morpheme": "communic", "meaning": "share" },
+      { "morpheme": "cent", "meaning": "hundred" },
+      { "morpheme": "enn", "meaning": "year" }
     ],
     "suffixes": [
-      { "morpheme": "-able", "meaning": "can be done" },
-      { "morpheme": "-ion", "meaning": "act, process" },
-      { "morpheme": "-er", "meaning": "one who" }
+      { "morpheme": "-er", "meaning": "one who, that which" },
+      { "morpheme": "-ly", "meaning": "in a way that is..." },
+      { "morpheme": "-able", "meaning": "capable of being" },
+      { "morpheme": "-ible", "meaning": "capable of being" },
+      { "morpheme": "-ful", "meaning": "full of" },
+      { "morpheme": "-less", "meaning": "without" },
+      { "morpheme": "-ness", "meaning": "state of" },
+      { "morpheme": "-ist", "meaning": "one who" },
+      { "morpheme": "-ology", "meaning": "study of" },
+      { "morpheme": "-ous", "meaning": "full of, having" },
+      { "morpheme": "-ion", "meaning": "act or process" },
+      { "morpheme": "-ation", "meaning": "act or process" },
+      { "morpheme": "-ity", "meaning": "state or quality of" },
+      { "morpheme": "-ive", "meaning": "tending to" },
+      { "morpheme": "-ment", "meaning": "state or act of" },
+      { "morpheme": "-ing", "meaning": "action or process" },
+      { "morpheme": "-ed", "meaning": "past tense" },
+      { "morpheme": "-ate", "meaning": "to make" },
+      { "morpheme": "-ary", "meaning": "of or relating to" },
+      { "morpheme": "-ant", "meaning": "tending to" },
+      { "morpheme": "-ily", "meaning": "in a manner of" },
+      { "morpheme": "-ience", "meaning": "state of" },
+      { "morpheme": "-ior", "meaning": "state of" },
+      { "morpheme": "-anean", "meaning": "of or relating to" },
+      { "morpheme": "-ance", "meaning": "state of" },
+      { "morpheme": "-al", "meaning": "relating to" },
+      { "morpheme": "-etic", "meaning": "relating to" },
+      { "morpheme": "-ence", "meaning": "state of" },
+      { "morpheme": "-ical", "meaning": "relating to" },
+      { "morpheme": "-ative", "meaning": "tending to" },
+      { "morpheme": "-ial", "meaning": "relating to" }
     ]
   },
   "questions": [
     {
-      "answer": "reconstruction",
-      "definition": "The act of building again.",
-      "parts": ["re-", "construct", "-ion"]
+      "answer": "teacher",
+      "definition": "One who teaches.",
+      "parts": ["teach", "-er"]
+    },
+    {
+      "answer": "hopeless",
+      "definition": "To be without hope.",
+      "parts": ["hope", "-less"]
+    },
+    {
+      "answer": "uncomfortable",
+      "definition": "Not comfortable.",
+      "parts": ["un-", "comfort", "-able"]
+    },
+    {
+      "answer": "disagree",
+      "definition": "The opposite of agree.",
+      "parts": ["dis-", "agree"]
+    },
+    {
+      "answer": "biology",
+      "definition": "The study of life.",
+      "parts": ["bi-o", "-logy"]
+    },
+    {
+      "answer": "rewind",
+      "definition": "To wind back again.",
+      "parts": ["re-", "wind"]
+    },
+    {
+      "answer": "transfer",
+      "definition": "To carry across from one place to another.",
+      "parts": ["trans-", "fer"]
+    },
+    {
+      "answer": "expel",
+      "definition": "To drive or force out.",
+      "parts": ["ex-", "pel"]
+    },
+    {
+      "answer": "interrupt",
+      "definition": "To break between; to stop a continuous activity.",
+      "parts": ["inter-", "rupt"]
+    },
+    {
+      "answer": "predict",
+      "definition": "To say what will happen before it occurs.",
+      "parts": ["pre-", "dict"]
+    },
+    {
+      "answer": "geology",
+      "definition": "The study of the earth and rocks.",
+      "parts": ["ge", "-o", "-logy"]
+    },
+    {
+      "answer": "retractable",
+      "definition": "Capable of being pulled back.",
+      "parts": ["re-", "tract", "-able"]
+    },
+    {
+      "answer": "incredible",
+      "definition": "Not capable of being believed.",
+      "parts": ["in-", "cred", "-ible"]
+    },
+    {
+      "answer": "transport",
+      "definition": "To carry something across a distance.",
+      "parts": ["trans-", "port"]
+    },
+    {
+      "answer": "joyous",
+      "definition": "Full of joy.",
+      "parts": ["joy", "-ous"]
     },
     {
       "answer": "unbelievable",
-      "definition": "Not able to be believed.",
+      "definition": "Not capable of being believed.",
       "parts": ["un-", "believe", "-able"]
     },
     {
-      "answer": "exporter",
-      "definition": "One who carries goods out of a country.",
-      "parts": ["ex-", "port", "-er"]
+      "answer": "disagreement",
+      "definition": "The state of not agreeing.",
+      "parts": ["dis-", "agree", "-ment"]
     },
     {
-      "answer": "preview",
-      "definition": "To see something before others do.",
-      "parts": ["pre-", "view"]
+      "answer": "reconsideration",
+      "definition": "The action or process of considering something again.",
+      "parts": ["re-", "consider", "-ation"]
+    },
+    {
+      "answer": "misunderstanding",
+      "definition": "The act of wrongly understanding something.",
+      "parts": ["mis-", "understand", "-ing"]
+    },
+    {
+      "answer": "overcomplicated",
+      "definition": "Made too complicated.",
+      "parts": ["over-", "complicate", "-ed"]
+    },
+    {
+      "answer": "inconsiderate",
+      "definition": "Not considerate of others.",
+      "parts": ["in-", "consider", "-ate"]
+    },
+    {
+      "answer": "unpredictable",
+      "definition": "Not capable of being predicted.",
+      "parts": ["un-", "predict", "-able"]
+    },
+    {
+      "answer": "reintroduction",
+      "definition": "The action or process of leading something in again.",
+      "parts": ["re-", "intro", "duct", "-ion"]
+    },
+    {
+      "answer": "disappointment",
+      "definition": "The state of feeling let down.",
+      "parts": ["dis-", "appoint", "-ment"]
+    },
+    {
+      "answer": "unemployment",
+      "definition": "The state of not being employed.",
+      "parts": ["un-", "employ", "-ment"]
+    },
+    {
+      "answer": "precautionary",
+      "definition": "Relating to caution taken beforehand.",
+      "parts": ["pre-", "caution", "-ary"]
+    },
+    {
+      "answer": "antisocial",
+      "definition": "Against being social with others.",
+      "parts": ["anti-", "social"]
+    },
+    {
+      "answer": "antidepressant",
+      "definition": "A substance that tends to work against depression.",
+      "parts": ["anti-", "depress", "-ant"]
+    },
+    {
+      "answer": "irreplaceable",
+      "definition": "Not capable of being replaced.",
+      "parts": ["ir-", "replace", "-able"]
+    },
+    {
+      "answer": "prehistoric",
+      "definition": "Relating to the time before recorded history.",
+      "parts": ["pre-", "historic"]
+    },
+    {
+      "answer": "unsatisfactorily",
+      "definition": "In a manner that is not satisfactory.",
+      "parts": ["un-", "satisfactor", "-ily"]
+    },
+    {
+      "answer": "inconvenience",
+      "definition": "The state of not being convenient.",
+      "parts": ["in-", "conveni", "-ence"]
+    },
+    {
+      "answer": "underestimated",
+      "definition": "Estimated to be below the actual value or quantity.",
+      "parts": ["under-", "estimate", "-ed"]
+    },
+    {
+      "answer": "unsatisfiable",
+      "definition": "Not capable of being satisfied.",
+      "parts": ["un-", "satisfy", "-able"]
+    },
+    {
+      "answer": "inaccessibility",
+      "definition": "The state of not being accessible.",
+      "parts": ["in-", "access", "-ible", "-ity"]
+    },
+    {
+      "answer": "deconstruction",
+      "definition": "The act of taking something apart or breaking it down.",
+      "parts": ["de-", "construct", "-ion"]
+    },
+    {
+      "answer": "unbreakable",
+      "definition": "Not capable of being broken.",
+      "parts": ["un-", "break", "-able"]
+    },
+    {
+      "answer": "disrespectful",
+      "definition": "Full of disrespect; not showing respect.",
+      "parts": ["dis-", "respect", "-ful"]
+    },
+    {
+      "answer": "interchangeable",
+      "definition": "Capable of being changed between one another.",
+      "parts": ["inter-", "change", "-able"]
+    },
+    {
+      "answer": "reformation",
+      "definition": "The process of shaping or forming something again.",
+      "parts": ["re-", "form", "-ation"]
+    },
+    {
+      "answer": "illegality",
+      "definition": "The state of not being legal.",
+      "parts": ["il-", "legal", "-ity"]
+    },
+    {
+      "answer": "immeasurable",
+      "definition": "Not capable of being measured.",
+      "parts": ["im-", "measure", "-able"]
+    },
+    {
+      "answer": "misbehavior",
+      "definition": "The state of behaving wrongly.",
+      "parts": ["mis-", "behav", "-ior"]
+    },
+    {
+      "answer": "subterranean",
+      "definition": "Relating to being under the earth.",
+      "parts": ["sub-", "terra", "-anean"]
+    },
+    {
+      "answer": "transformation",
+      "definition": "The process of changing shape or form across a boundary.",
+      "parts": ["trans-", "form", "-ation"]
+    },
+    {
+      "answer": "noncompliance",
+      "definition": "The state of not complying with a rule or request.",
+      "parts": ["non-", "compli", "-ance"]
+    },
+    {
+      "answer": "supernatural",
+      "definition": "Relating to forces above or beyond nature.",
+      "parts": ["super-", "natur", "-al"]
+    },
+    {
+      "answer": "unsympathetic",
+      "definition": "Not relating to feeling together with someone.",
+      "parts": ["un-", "sym-", "path", "-etic"]
+    },
+    {
+      "answer": "counterproductive",
+      "definition": "Tending to go against the desired product or result.",
+      "parts": ["counter-", "product", "-ive"]
+    },
+    {
+      "answer": "indescribable",
+      "definition": "Not capable of being described.",
+      "parts": ["in-", "describ", "-able"]
+    },
+    {
+      "answer": "postgraduate",
+      "definition": "Relating to a level of study after graduating.",
+      "parts": ["post-", "graduate"]
+    },
+    {
+      "answer": "collaboration",
+      "definition": "The process of working with others.",
+      "parts": ["col-", "labor", "-ation"]
+    },
+    {
+      "answer": "unconstitutional",
+      "definition": "Relating to something that is not in accordance with a country's constitution.",
+      "parts": ["un-", "con-", "stitut", "-ion", "-al"]
+    },
+    {
+      "answer": "demotivation",
+      "definition": "The process of moving away from motivation.",
+      "parts": ["de-", "motiv", "-ation"]
+    },
+    {
+      "answer": "reappearance",
+      "definition": "The state of appearing again.",
+      "parts": ["re-", "appear", "-ance"]
+    },
+    {
+      "answer": "proactively",
+      "definition": "In a manner that tends to act forward or in advance.",
+      "parts": ["pro-", "act", "-ive", "-ly"]
+    },
+    {
+      "answer": "incomprehensible",
+      "definition": "Not capable of being comprehended or understood.",
+      "parts": ["in-", "comprehend", "-ible"]
+    },
+    {
+      "answer": "malfunction",
+      "definition": "A bad or faulty function.",
+      "parts": ["mal-", "function"]
+    },
+    {
+      "answer": "disorganized",
+      "definition": "Characterized by not being organized.",
+      "parts": ["dis-", "organize", "-ed"]
+    },
+    {
+      "answer": "international",
+      "definition": "Relating to what is between nations.",
+      "parts": ["inter-", "nation", "-al"]
+    },
+    {
+      "answer": "unproductively",
+      "definition": "In a manner that is not productive.",
+      "parts": ["un-", "product", "-ive", "-ly"]
+    },
+    {
+      "answer": "enlightenment",
+      "definition": "The state of being caused to have light or understanding.",
+      "parts": ["en-", "lighten", "-ment"]
+    },
+    {
+      "answer": "premeditated",
+      "definition": "Characterized by being meditated on or planned before.",
+      "parts": ["pre-", "meditat", "-ed"]
+    },
+    {
+      "answer": "irresponsible",
+      "definition": "Not capable of answering for one's actions.",
+      "parts": ["ir-", "respons", "-ible"]
+    },
+    {
+      "answer": "unconsciousness",
+      "definition": "The state of not being characterized by knowing or awareness.",
+      "parts": ["un-", "con-", "sci", "-ous", "-ness"]
+    },
+    {
+      "answer": "circumnavigate",
+      "definition": "To drive or sail a ship around something.",
+      "parts": ["circum-", "nav", "-igate"]
+    },
+    {
+      "answer": "extraterrestrial",
+      "definition": "Relating to something from outside of the Earth.",
+      "parts": ["extra-", "terrestri", "-al"]
+    },
+    {
+      "answer": "hyperactive",
+      "definition": "Tending to be over-active.",
+      "parts": ["hyper-", "act", "-ive"]
+    },
+    {
+      "answer": "misinformation",
+      "definition": "The act of providing wrong information.",
+      "parts": ["mis-", "inform", "-ation"]
+    },
+    {
+      "answer": "unfashionable",
+      "definition": "Not capable of being in fashion.",
+      "parts": ["un-", "fashion", "-able"]
+    },
+    {
+      "answer": "subconsciously",
+      "definition": "In a manner characterized by knowing something under the level of full awareness.",
+      "parts": ["sub-", "con-", "sci", "-ous", "-ly"]
+    },
+    {
+      "answer": "degeneration",
+      "definition": "The process of a kind or type breaking down.",
+      "parts": ["de-", "gener", "-ation"]
+    },
+    {
+      "answer": "disconnection",
+      "definition": "The state of being connected apart from something.",
+      "parts": ["dis-", "connect", "-ion"]
+    },
+    {
+      "answer": "impracticality",
+      "definition": "The state or quality of not being practical.",
+      "parts": ["im-", "pract", "-ical", "-ity"]
+    },
+    {
+      "answer": "reprehensible",
+      "definition": "Capable of being grasped back or held in contempt; deserving censure.",
+      "parts": ["re-", "prehens", "-ible"]
+    },
+    {
+      "answer": "unforgivable",
+      "definition": "Not capable of being forgiven.",
+      "parts": ["un-", "forgive", "-able"]
+    },
+    {
+      "answer": "antagonist",
+      "definition": "One who struggles against another.",
+      "parts": ["ant-", "agon", "-ist"]
+    },
+    {
+      "answer": "coexistence",
+      "definition": "The state of existing together.",
+      "parts": ["co-", "exist", "-ence"]
+    },
+    {
+      "answer": "disenchanted",
+      "definition": "Characterized by not being under a chant or spell.",
+      "parts": ["dis-", "enchant", "-ed"]
+    },
+    {
+      "answer": "illogical",
+      "definition": "Relating to something that is not logical.",
+      "parts": ["il-", "logic", "-al"]
+    },
+    {
+      "answer": "overreaction",
+      "definition": "The act of reacting too much or excessively.",
+      "parts": ["over-", "react", "-ion"]
+    },
+    {
+      "answer": "perfectionist",
+      "definition": "One who is concerned with the act of making things thoroughly.",
+      "parts": ["per-", "fect", "-ion", "-ist"]
+    },
+    {
+      "answer": "uncommunicative",
+      "definition": "Tending to not share information.",
+      "parts": ["un-", "communic", "-ative"]
+    },
+    {
+      "answer": "bicentennial",
+      "definition": "Relating to a two-hundred-year anniversary.",
+      "parts": ["bi-", "cent", "enn", "-ial"]
+    },
+    {
+      "answer": "undeniable",
+      "definition": "Not capable of being denied.",
+      "parts": ["un-", "deny", "-able"]
     }
   ]
 }
