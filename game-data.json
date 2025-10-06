@@ -1,0 +1,41 @@
+{
+  "morphemes": {
+    "prefixes": [
+      { "morpheme": "re-", "meaning": "again, back" },
+      { "morpheme": "un-", "meaning": "not, opposite of" },
+      { "morpheme": "pre-", "meaning": "before" }
+    ],
+    "roots": [
+      { "morpheme": "vis", "meaning": "see" },
+      { "morpheme": "port", "meaning": "carry" },
+      { "morpheme": "struct", "meaning": "build" }
+    ],
+    "suffixes": [
+      { "morpheme": "-able", "meaning": "can be done" },
+      { "morpheme": "-ion", "meaning": "act, process" },
+      { "morpheme": "-er", "meaning": "one who" }
+    ]
+  },
+  "questions": [
+    {
+      "answer": "reconstruction",
+      "definition": "The act of building again.",
+      "parts": ["re-", "construct", "-ion"]
+    },
+    {
+      "answer": "unbelievable",
+      "definition": "Not able to be believed.",
+      "parts": ["un-", "believe", "-able"]
+    },
+    {
+      "answer": "exporter",
+      "definition": "One who carries goods out of a country.",
+      "parts": ["ex-", "port", "-er"]
+    },
+    {
+      "answer": "preview",
+      "definition": "To see something before others do.",
+      "parts": ["pre-", "view"]
+    }
+  ]
+}
