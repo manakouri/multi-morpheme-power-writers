@@ -6,11 +6,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
-/* NEW: Mode Selection Screen Styling */
+h1 {
+    color: #005a9c;
+    margin-top: 0;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #e1e1e1;
+    padding-bottom: 8px;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Mode Selection Screen Styling (index.html) --- */
 #mode-selection {
     text-align: center;
     background-color: #fff;
@@ -21,6 +38,8 @@ body {
 
 .mode-buttons {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
     margin-top: 1.5rem;
 }
@@ -34,18 +53,15 @@ body {
     cursor: pointer;
     background-color: #007bff;
     transition: background-color 0.2s;
+    text-decoration: none; /* For the 'a' tag styled as a button */
+    display: inline-block;
 }
 
 .mode-btn:hover {
     background-color: #0056b3;
 }
 
-.mode-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-/* Game Container Styling */
+/* --- Practice Mode Game Container (index.html) --- */
 #game-container {
     background-color: #ffffff;
     padding: 2rem;
@@ -56,24 +72,52 @@ body {
     text-align: center;
 }
 
-/* Other styles from before... */
-h2 {
-    color: #333;
-    border-bottom: 2px solid #e1e1e1;
-    padding-bottom: 8px;
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Prompt Section */
+#prompt-container {
+    background-color: #e3f2fd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
-#prompt-container { background-color: #e3f2fd; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 1.1rem; }
-#definition { font-style: italic; font-weight: bold; }
-#morpheme-bank { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 1rem; background-color: #fafafa; border-radius: 8px; min-height: 50px; }
-.morpheme { background-color: #4caf50; color: white; padding: 10px 20px; border-radius: 6px; cursor: grab; user-select: none; transition: background-color 0.2s; text-align: center; }
-.morpheme:hover { background-color: #45a049; }
-.morpheme.dragging { opacity: 0.5; cursor: grabbing; }
 
-/* NEW: Style for the meaning text */
+#definition {
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Morpheme Tiles */
+#morpheme-bank {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem;
+    background-color: #fafafa;
+    border-radius: 8px;
+    min-height: 50px;
+}
+
+.morpheme {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: grab;
+    user-select: none;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.morpheme:hover {
+    background-color: #45a049;
+}
+
+.morpheme.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
 .morpheme .meaning {
     font-size: 0.8em;
     font-style: italic;
@@ -82,18 +126,206 @@ h2 {
     margin-top: 4px;
 }
 
-.drop-zone { min-height: 60px; border: 2px dashed #cccccc; border-radius: 8px; padding: 10px; display: flex; justify-content: center; align-items: center; gap: 5px; transition: border-color 0.2s, background-color 0.2s; }
-.drop-zone.drag-over { border-color: #007bff; background-color: #f8f9fa; }
-#spelling-zone { margin-top: 1.5rem; display: flex; justify-content: center; gap: 10px; }
-#spelling-input { padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; width: 60%; }
-button { padding: 10px 20px; font-size: 1rem; border: none; border-radius: 6px; color: white; cursor: pointer; transition: background-color 0.2s; }
+/* Construction (Drop) Zone */
+.drop-zone {
+    min-height: 60px;
+    border: 2px dashed #cccccc;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: border-color 0.2s, background-color 0.2s;
+    flex-wrap: wrap;
+}
+
+.drop-zone.drag-over {
+    border-color: #007bff;
+    background-color: #f8f9fa;
+}
+
+/* Spelling and General Buttons */
+#spelling-zone {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#spelling-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 60%;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
 #check-spell-btn { background-color: #007bff; }
 #check-spell-btn:hover { background-color: #0056b3; }
-#reset-btn { background-color: #6c757d; } /* Changed color slightly */
+#reset-btn { background-color: #6c757d; }
 #reset-btn:hover { background-color: #5a6268; }
 #toggle-meanings-btn { font-size: 0.8rem; padding: 5px 10px; background-color: #17a2b8; }
 #toggle-meanings-btn:hover { background-color: #138496; }
-#feedback-container { margin-top: 1rem; min-height: 24px; font-weight: bold; }
+
+/* Feedback Containers */
+#feedback-container {
+    margin-top: 1rem;
+    min-height: 24px;
+    font-weight: bold;
+}
+
 .feedback-correct { color: #28a745; }
 .feedback-incorrect { color: #dc3545; }
 .hidden { display: none !important; }
+
+/* --- Challenge Mode Styles (challenge.html) --- */
+#challenge-container {
+    background-color: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+}
+
+#start-screen, #end-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#start-screen h2 {
+    color: #dc3545;
+    border: none;
+}
+
+.score-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #005a9c;
+    background-color: #e3f2fd;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.back-link {
+    margin-top: 1rem;
+    color: #6c757d;
+    text-decoration: none;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Game Screen Styles */
+#game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.stat-box {
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 8px;
+    width: 48%;
+    font-weight: 500;
+}
+
+#timer {
+    font-weight: bold;
+    color: #dc3545;
+}
+
+#challenge-prompt {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+#challenge-definition {
+    font-style: italic;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+#challenge-input-area {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#answer-input {
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.2s;
+}
+
+#answer-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#check-answer-btn {
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    background-color: #28a745;
+}
+#check-answer-btn:hover {
+    background-color: #218838;
+}
+
+#challenge-controls {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#hint-btn, #next-word-btn {
+    background-color: #ffc107;
+    color: #212529;
+}
+#hint-btn:hover, #next-word-btn:hover {
+    background-color: #e0a800;
+}
+
+#challenge-feedback {
+    margin-top: 1.5rem;
+    min-height: 50px;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+#challenge-feedback .morpheme-breakdown {
+    font-size: 0.9rem;
+}
+
+#challenge-feedback .morpheme-breakdown strong {
+    color: #005a9c;
+}
+
+#new-high-score-msg {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
