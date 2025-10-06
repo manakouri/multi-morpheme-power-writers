@@ -56,53 +56,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 5. QUESTION & MORPHEME BANK LOGIC ---
     function generateQuestion() {
-        let root;
-        do {
-            root = allMorphemes.roots[Math.floor(Math.random() * allMorphemes.roots.length)];
-        } while (!root.examples || root.examples.length === 0);
-
-        const answer = root.examples[Math.floor(Math.random() * root.examples.length)];
-        let tempAnswer = answer;
-        const parts = [];
-        let definition = `(Meaning: ${root.meaning})`;
-
-        const prefix = allMorphemes.prefixes.find(p => tempAnswer.startsWith(p.morpheme));
-        if (prefix) {
-            parts.push(prefix.morpheme);
-            tempAnswer = tempAnswer.substring(prefix.morpheme.length);
-            definition = `${prefix.meaning}, ${definition}`;
-        }
+    // UPDATED: Now correctly picks a random question from your curated list
+    const questionData = allMorphemes.questions[Math.floor(Math.random() * allMorphemes.questions.length)];
+    
+    // Generate morpheme bank options (correct parts + random distractors)
+    const morphemesForBank = [...new Set(questionData.parts)]; // Use Set to avoid duplicates
+    while (morphemesForBank.length < 8) {
+        // UPDATED: Now pulls random distractors from the correct location
+        const randomType = ['prefixes', 'suffixes', 'roots'][Math.floor(Math.random() * 3)];
+        const randomMorpheme = allMorphemes.morphemes[randomType][Math.floor(Math.random() * allMorphemes.morphemes[randomType].length)];
         
-        const suffix = allMorphemes.suffixes.find(s => tempAnswer.endsWith(s.morpheme));
-        if (suffix) {
-            const rootPart = tempAnswer.substring(0, tempAnswer.length - suffix.morpheme.length);
-            parts.push(rootPart);
-            parts.push(suffix.morpheme);
-            definition = `${definition}, ${suffix.meaning}`;
-        } else {
-            parts.push(tempAnswer);
+        if (!morphemesForBank.includes(randomMorpheme.morpheme)) {
+            morphemesForBank.push(randomMorpheme.morpheme);
         }
-        
-        const morphemes = [...new Set(parts)];
-        while (morphemes.length < 8) {
-            const randomType = ['prefixes', 'suffixes', 'roots'][Math.floor(Math.random() * 3)];
-            const randomMorpheme = allMorphemes[randomType][Math.floor(Math.random() * allMorphemes[randomType].length)];
-            if (!morphemes.includes(randomMorpheme.morpheme)) {
-                morphemes.push(randomMorpheme.morpheme);
-            }
-        }
-        
-        return { definition, parts, morphemes: morphemes.sort(() => Math.random() - 0.5), answer };
     }
+    
+    // Return a final, well-formed question object
+    return {
+        definition: questionData.definition,
+        parts: questionData.parts,
+        morphemes: morphemesForBank.sort(() => Math.random() - 0.5),
+        answer: questionData.answer
+    };
+}
     
     // NEW: Helper function to find morpheme data
     function findMorphemeData(morphemeString) {
-        for (const type of ['prefixes', 'roots', 'suffixes']) {
-            const found = allMorphemes[type].find(m => m.morpheme === morphemeString);
-            if (found) return found;
-        }
-        return null; // Return null for parts like 'construct' which aren't base roots
+    // UPDATED: Now looks inside the 'morphemes' object for the definitions
+    for (const type of ['prefixes', 'roots', 'suffixes']) {
+        const found = allMorphemes.morphemes[type].find(m => m.morpheme === morphemeString);
+        if (found) return found;
     }
+    return null; // Return null for parts that aren't base morphemes
+}
     
     // UPDATED: Now populates the bank based on the showMeanings state
     function populateMorphemeBank() {
