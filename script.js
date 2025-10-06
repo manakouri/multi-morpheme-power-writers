@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // UPDATED: The path now points to the 'json' folder.
             // If your folder has a different name, change it here.
-            const response = await fetch('morphemes.json'); 
+            const response = await fetch('game-data.json'); 
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
