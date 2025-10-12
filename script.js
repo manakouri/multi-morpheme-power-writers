@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let allMorphemes = null;
     let currentQuestion = null;
     let droppedParts = [];
-    let showMeanings = false; // NEW: State for toggling meanings
+    let showMeanings = false; 
 
     // --- 2. DOM REFERENCES ---
     const modeSelectionEl = document.getElementById('mode-selection');
@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. DATA LOADING ---
     async function loadMorphemeData() {
         try {
-            // UPDATED: The path now points to the 'json' folder.
-            // If your folder has a different name, change it here.
             const response = await fetch('game-data.json'); 
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -32,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             allMorphemes = await response.json();
         } catch (error) {
             console.error('Failed to load morpheme data:', error);
-            // UPDATED: More helpful error message for the user.
-            modeSelectionEl.innerHTML = `<h1>Error 😢</h1><p>Could not load the morpheme database. Please ensure the file is located at <strong>/json/morphemes.json</strong> and that your folder is named 'json'.</p>`;
+            modeSelectionEl.innerHTML = `<h1>Error 😢</h1><p>Could not load game data. Please ensure the file <strong>game-data.json</strong> is in the correct folder.</p>`;
         }
     }
 
@@ -41,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     async function initializeGame() {
         await loadMorphemeData();
         if (allMorphemes) {
-            // Show mode selection screen only after data is loaded
-            modeSelectionEl.classList.remove('hidden'); // This might already be visible, but good practice
             practiceModeBtn.addEventListener('click', startPracticeMode);
         }
     }
@@ -56,41 +51,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 5. QUESTION & MORPHEME BANK LOGIC ---
     function generateQuestion() {
-    // UPDATED: Now correctly picks a random question from your curated list
-    const questionData = allMorphemes.questions[Math.floor(Math.random() * allMorphemes.questions.length)];
-    
-    // Generate morpheme bank options (correct parts + random distractors)
-    const morphemesForBank = [...new Set(questionData.parts)]; // Use Set to avoid duplicates
-    while (morphemesForBank.length < 8) {
-        // UPDATED: Now pulls random distractors from the correct location
-        const randomType = ['prefixes', 'suffixes', 'roots'][Math.floor(Math.random() * 3)];
-        const randomMorpheme = allMorphemes.morphemes[randomType][Math.floor(Math.random() * allMorphemes.morphemes[randomType].length)];
-        
-        if (!morphemesForBank.includes(randomMorpheme.morpheme)) {
-            morphemesForBank.push(randomMorpheme.morpheme);
+        const questionData = allMorphemes.questions[Math.floor(Math.random() * allMorphemes.questions.length)];
+        const morphemesForBank = [...new Set(questionData.parts)];
+        while (morphemesForBank.length < 8) {
+            const randomType = ['prefixes', 'suffixes', 'roots'][Math.floor(Math.random() * 3)];
+            const randomMorpheme = allMorphemes.morphemes[randomType][Math.floor(Math.random() * allMorphemes.morphemes[randomType].length)];
+            
+            if (!morphemesForBank.includes(randomMorpheme.morpheme)) {
+                morphemesForBank.push(randomMorpheme.morpheme);
+            }
         }
+        return {
+            definition: questionData.definition,
+            parts: questionData.parts,
+            morphemes: morphemesForBank.sort(() => Math.random() - 0.5),
+            answer: questionData.answer
+        };
     }
     
-    // Return a final, well-formed question object
-    return {
-        definition: questionData.definition,
-        parts: questionData.parts,
-        morphemes: morphemesForBank.sort(() => Math.random() - 0.5),
-        answer: questionData.answer
-    };
-}
-    
-    // NEW: Helper function to find morpheme data
     function findMorphemeData(morphemeString) {
-    // UPDATED: Now looks inside the 'morphemes' object for the definitions
-    for (const type of ['prefixes', 'roots', 'suffixes']) {
-        const found = allMorphemes.morphemes[type].find(m => m.morpheme === morphemeString);
-        if (found) return found;
+        for (const type of ['prefixes', 'roots', 'suffixes']) {
+            const found = allMorphemes.morphemes[type].find(m => m.morpheme === morphemeString);
+            if (found) return found;
+        }
+        return null;
     }
-    return null; // Return null for parts that aren't base morphemes
-}
     
-    // UPDATED: Now populates the bank based on the showMeanings state
     function populateMorphemeBank() {
         morphemeBankEl.innerHTML = '';
         currentQuestion.morphemes.forEach(part => {
@@ -120,30 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 6. GAMEPLAY & STATE MANAGEMENT ---
-    function checkAnswer() { /* ... same as before ... */ }
-    function resetState() { /* ... same as before ... */ }
-    
-    // NEW: Logic for the toggle button
-    function handleToggleMeanings() {
-        showMeanings = !showMeanings; // Flip the state
-        toggleMeaningsBtn.textContent = showMeanings ? "Hide Meanings" : "Show Meanings";
-        populateMorphemeBank(); // Re-render the bank with the new state
-    }
-
-    // --- 7. EVENT LISTENERS & HANDLERS ---
-    function setupEventListeners() {
-        checkSpellBtn.addEventListener('click', checkAnswer);
-        resetBtn.addEventListener('click', loadNewQuestion);
-        toggleMeaningsBtn.addEventListener('click', handleToggleMeanings);
-        spellingInputEl.addEventListener('keyup', (e) => { if (e.key === 'Enter') checkAnswer(); });
-        constructionZoneEl.addEventListener('dragover', (e) => { e.preventDefault(); constructionZoneEl.classList.add('drag-over'); });
-        constructionZoneEl.addEventListener('dragleave', () => { constructionZoneEl.classList.remove('drag-over'); });
-        constructionZoneEl.addEventListener('drop', handleDrop);
-    }
-    
-    // All other functions (checkAnswer, resetState, drag/drop handlers) remain the same.
-    // I've included them here for a complete, copy-paste ready file.
-    
     function checkAnswer() {
         const userAnswer = spellingInputEl.value.trim().toLowerCase();
         if (userAnswer === currentQuestion.answer) {
@@ -151,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feedbackEl.className = 'feedback-correct';
             setTimeout(loadNewQuestion, 2000);
         } else {
-            feedbackEl.textContent = `Not quite. Remember the definition and check your spelling. Try again!`;
+            feedbackEl.textContent = `Not quite. Check your spelling or click on a part to remove it and try again.`;
             feedbackEl.className = 'feedback-incorrect';
         }
     }
@@ -163,9 +125,45 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackEl.textContent = '';
         spellingZoneEl.classList.add('hidden');
     }
+    
+    function handleToggleMeanings() {
+        showMeanings = !showMeanings;
+        toggleMeaningsBtn.textContent = showMeanings ? "Hide Meanings" : "Show Meanings";
+        populateMorphemeBank();
+    }
 
+    // --- 7. EVENT LISTENERS & HANDLERS ---
+    // NEW: Function to remove a morpheme from the construction zone
+    function handleRemoveMorpheme(e) {
+        const clickedEl = e.currentTarget;
+        const morphemeValue = clickedEl.dataset.value;
+
+        // Find the first occurrence of this value to remove
+        const indexToRemove = droppedParts.indexOf(morphemeValue);
+        if (indexToRemove > -1) {
+            droppedParts.splice(indexToRemove, 1);
+        }
+
+        // Remove the element from the view
+        clickedEl.remove();
+
+        // Hide spelling box and clear feedback as the construction is no longer complete
+        spellingZoneEl.classList.add('hidden');
+        feedbackEl.innerHTML = '';
+    }
+
+    function setupEventListeners() {
+        checkSpellBtn.addEventListener('click', checkAnswer);
+        resetBtn.addEventListener('click', loadNewQuestion);
+        toggleMeaningsBtn.addEventListener('click', handleToggleMeanings);
+        spellingInputEl.addEventListener('keyup', (e) => { if (e.key === 'Enter') checkAnswer(); });
+        constructionZoneEl.addEventListener('dragover', (e) => { e.preventDefault(); constructionZoneEl.classList.add('drag-over'); });
+        constructionZoneEl.addEventListener('dragleave', () => { constructionZoneEl.classList.remove('drag-over'); });
+        constructionZoneEl.addEventListener('drop', handleDrop);
+    }
+    
     function addDragListenersToMorphemes() {
-        document.querySelectorAll('.morpheme').forEach(morpheme => {
+        document.querySelectorAll('#morpheme-bank .morpheme').forEach(morpheme => {
             morpheme.addEventListener('dragstart', handleDragStart);
             morpheme.addEventListener('dragend', handleDragEnd);
         });
@@ -186,7 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const droppedValue = e.dataTransfer.getData('text/plain');
         
         const originalDraggable = morphemeBankEl.querySelector(`[data-value="${droppedValue}"]`);
-        constructionZoneEl.appendChild(originalDraggable.cloneNode(true));
+        const clone = originalDraggable.cloneNode(true);
+
+        // UPDATED: Add a click listener to the new part in the construction zone
+        clone.addEventListener('click', handleRemoveMorpheme);
+
+        constructionZoneEl.appendChild(clone);
         
         droppedParts.push(droppedValue);
         if (droppedParts.length === currentQuestion.parts.length) {
