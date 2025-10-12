@@ -137,13 +137,26 @@ h2 {
     align-items: center;
     gap: 5px;
     transition: border-color 0.2s, background-color 0.2s;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Fix for mobile screens */
+}
+
+.drop-zone .morpheme {
+    cursor: pointer; /* Change cursor to show it's clickable */
 }
 
 .drop-zone.drag-over {
     border-color: #007bff;
     background-color: #f8f9fa;
 }
+
+/* Style for the instruction text */
+.instruction-text {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
 
 /* Spelling and General Buttons */
 #spelling-zone {
@@ -231,7 +244,7 @@ button {
     text-decoration: underline;
 }
 
-/* NEW: Container for home links */
+/* Container for home links */
 .home-link-container {
     margin-top: 2rem;
     width: 100%;
