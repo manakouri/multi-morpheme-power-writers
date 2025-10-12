@@ -141,7 +141,8 @@
       { "morpheme": "-ly", "meaning": "in a way that is..." },
       { "morpheme": "-ment", "meaning": "state or act of" },
       { "morpheme": "-ness", "meaning": "state of" },
-      { "morpheme": "-ous", "meaning": "full of, having" }
+      { "morpheme": "-ous", "meaning": "full of, having" },
+      { "morpheme": "-ure", "meaning": "act or process" }
     ]
   },
   "questions": [
