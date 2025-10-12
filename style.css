@@ -150,14 +150,10 @@ h2 {
     background-color: #f8f9fa;
 }
 
-/* Style for the instruction text */
-.instruction-text {
-    font-size: 0.9em;
-    color: #6c757d;
-    margin-top: 8px;
-    margin-bottom: 0;
+/* NEW: Add a pointer cursor to morphemes in the drop zone to show they are clickable */
+.drop-zone .morpheme {
+    cursor: pointer;
 }
-
 
 /* Spelling and General Buttons */
 #spelling-zone {
@@ -351,5 +347,6 @@ button {
     font-weight: bold;
     font-size: 1.2rem;
 }
+
 
 
