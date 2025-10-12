@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <!-- Mode selection screen -->
     <div id="mode-selection">
         <h1>Multi-Morpheme Power Writers ⚡️</h1>
         <p>Choose your game mode:</p>
@@ -17,6 +18,7 @@
         </div>
     </div>
 
+    <!-- The game container is hidden initially -->
     <div id="game-container" class="hidden">
         
         <div id="prompt-container">
@@ -30,7 +32,8 @@
         </div>
 
         <div id="spelling-zone" class="hidden">
-            <input type="text" id="spelling-input" placeholder="Now, type the final word...">
+            <!-- UPDATED: Added attributes to disable predictive text -->
+            <input type="text" id="spelling-input" placeholder="Now, type the final word..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
             <button id="check-spell-btn">Check Spelling</button>
         </div>
 
@@ -46,7 +49,7 @@
         </div>
         
         <div class="home-link-container">
-             <a href="index.html" class="back-link">Back to Mode Select</a>
+            <a href="index.html" class="back-link">Back to Mode Select</a>
         </div>
     </div>
 
