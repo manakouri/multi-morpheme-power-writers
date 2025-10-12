@@ -133,23 +133,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 7. EVENT LISTENERS & HANDLERS ---
-    // NEW: Function to remove a morpheme from the construction zone
     function handleRemoveMorpheme(e) {
         const clickedEl = e.currentTarget;
         const morphemeValue = clickedEl.dataset.value;
 
-        // Find the first occurrence of this value to remove
         const indexToRemove = droppedParts.indexOf(morphemeValue);
         if (indexToRemove > -1) {
             droppedParts.splice(indexToRemove, 1);
         }
 
-        // Remove the element from the view
         clickedEl.remove();
 
-        // Hide spelling box and clear feedback as the construction is no longer complete
         spellingZoneEl.classList.add('hidden');
         feedbackEl.innerHTML = '';
+    }
+    
+    // Function to prevent default scroll behavior on touch devices
+    function preventScroll(e) {
+        e.preventDefault();
     }
 
     function setupEventListeners() {
@@ -172,10 +173,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleDragStart(e) {
         e.dataTransfer.setData('text/plain', e.target.dataset.value);
         setTimeout(() => e.target.classList.add('dragging'), 0);
+        // Add listener to prevent scrolling during drag
+        document.body.addEventListener('touchmove', preventScroll, { passive: false });
     }
 
     function handleDragEnd(e) {
         e.target.classList.remove('dragging');
+        // Remove listener when drag is over
+        document.body.removeEventListener('touchmove', preventScroll);
     }
 
     function handleDrop(e) {
@@ -185,10 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const originalDraggable = morphemeBankEl.querySelector(`[data-value="${droppedValue}"]`);
         const clone = originalDraggable.cloneNode(true);
-
-        // UPDATED: Add a click listener to the new part in the construction zone
         clone.addEventListener('click', handleRemoveMorpheme);
-
         constructionZoneEl.appendChild(clone);
         
         droppedParts.push(droppedValue);
@@ -201,3 +203,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 8. START THE APPLICATION ---
     initializeGame();
 });
+
