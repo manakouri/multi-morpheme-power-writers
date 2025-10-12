@@ -121,9 +121,9 @@
       { "morpheme": "satisfy", "meaning": "to meet expectations" },
       { "morpheme": "convenience", "meaning": "ease or suitability" },
       { "morpheme": "estimate", "meaning": "to judge the value of" },
-      { "morpheme": "access", "meaning": "to approach or enter" }
-      { "morpheme": "fer", "meaning": "to carry" }
-      { "morpheme": "pel", "meaning": "to push" }
+      { "morpheme": "access", "meaning": "to approach or enter" },
+      { "morpheme": "fer", "meaning": "to carry" },
+      { "morpheme": "pel", "meaning": "to push" },
     ],
     "suffixes": [
       { "morpheme": "-er", "meaning": "one who, that which" },
