@@ -207,7 +207,7 @@
     { "answer": "telephone", "definition": "A device for hearing distant sound.", "parts": ["tele", "phone"] },
     { "answer": "multiphonic", "definition": "Relating to many sounds.", "parts": ["multi-", "phono", "-ic"] },
     { "answer": "chronic", "definition": "Relating to time (persisting for a long time).", "parts": ["chron", "-ic"] },
-    { "answer": "synchronize", "definition": "To make happen at the same time with something else.", "parts": ["syn-", "chron", "-ize"] },
+    { "answer": "synchronise", "definition": "To make happen at the same time with something else.", "parts": ["syn-", "chron", "-ise"] },
     { "answer": "dehydrate", "definition": "To take water away.", "parts": ["de-", "hydr", "-ate"] },
     { "answer": "rehydrate", "definition": "To put water back again.", "parts": ["re-", "hydr", "-ate"] },
     { "answer": "hydrophone", "definition": "A device for hearing sound under water.", "parts": ["hydro", "phone"] },
