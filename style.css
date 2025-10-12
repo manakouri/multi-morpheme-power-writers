@@ -107,6 +107,7 @@ h2 {
     user-select: none;
     transition: background-color 0.2s;
     text-align: center;
+    touch-action: none; /* UPDATED: Prevents page scroll on touch devices when dragging */
 }
 
 .morpheme:hover {
@@ -350,4 +351,5 @@ button {
     font-weight: bold;
     font-size: 1.2rem;
 }
+
 
